@@ -161,11 +161,7 @@ const Main = () => {
                 <input
                   type="text"
                   name="text"
-                  placeholder={`Whats on your mind ${
-                    user?.displayName?.split(" ")[0] ||
-                    userData?.name?.charAt(0).toUpperCase() +
-                      userData?.name?.slice(1)
-                  }`}
+                  placeholder="Post content here"
                   className="outline-none w-full bg-white rounded-md"
                   ref={text}
                 ></input>
@@ -211,18 +207,6 @@ const Main = () => {
               </Button>
             )}
           </div>
-          <div className="flex items-center">
-            <img className="h-10 mr-4" src={live} alt="live"></img>
-            <p className="font-roboto font-medium text-md text-gray-700 no-underline tracking-normal leading-none">
-              Live
-            </p>
-          </div>
-          <div className="flex items-center">
-            <img className="h-10 mr-4" src={smile} alt="feeling"></img>
-            <p className="font-roboto font-medium text-md text-gray-700 no-underline tracking-normal leading-none">
-              Feeling
-            </p>
-          </div>
         </div>
       </div>
       <div className="flex flex-col py-4 w-full">
@@ -246,9 +230,8 @@ const Main = () => {
                     email={post?.email}
                     image={post?.image}
                     text={post?.text}
-                    timestamp={new Date(
-                      post?.timestamp?.toDate()
-                    )?.toUTCString()}
+                    timestamp={new Date(post?.timestamp?.toDate()).toLocaleString('en-US', { timeZone: 'Africa/Nairobi' })}
+
                   ></PostCard>
                 );
               })}

@@ -101,6 +101,7 @@ const CommentSection = ({ postId }) => {
             image={comment?.image}
             name={comment?.name}
             comment={comment?.comment}
+            timestamp={new Date(comment?.timestamp?.toDate()).toLocaleString('en-US', { timeZone: 'Africa/Nairobi' })}
           ></Comment>
         );
       })}
