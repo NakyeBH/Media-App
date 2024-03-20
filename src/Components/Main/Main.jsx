@@ -8,8 +8,6 @@ import React, {
 import { Avatar } from "@material-tailwind/react";
 import avatar from "../../assets/images/avatar.jpg";
 import { Button } from "@material-tailwind/react";
-import live from "../../assets/images/live.png";
-import smile from "../../assets/images/smile.png";
 import addImage from "../../assets/images/add-image.png";
 import { AuthContext } from "../AppContext/AppContext";
 import {
@@ -143,7 +141,7 @@ const Main = () => {
       });
     };
     return () => postData();
-  }, [SUBMIT_POST]);
+  }, [SUBMIT_POST, collectionRef]);
 
   return (
     <div className="flex flex-col items-center">
@@ -230,8 +228,9 @@ const Main = () => {
                     email={post?.email}
                     image={post?.image}
                     text={post?.text}
-                    timestamp={new Date(post?.timestamp?.toDate()).toLocaleString('en-US', { timeZone: 'Africa/Nairobi' })}
-
+                    timestamp={new Date(
+                      post?.timestamp?.toDate()
+                    )?.toUTCString()}
                   ></PostCard>
                 );
               })}

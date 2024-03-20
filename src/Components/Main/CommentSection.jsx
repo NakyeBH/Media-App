@@ -1,6 +1,5 @@
 import React, { useContext, useRef, useReducer, useEffect } from "react";
 import { Avatar } from "@material-tailwind/react";
-import { Input } from "@material-tailwind/react";
 import avatar from "../../assets/images/avatar.jpg";
 import { AuthContext } from "../AppContext/AppContext";
 import {
